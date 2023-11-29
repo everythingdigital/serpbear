@@ -29,7 +29,7 @@ const fetchSearchConsoleData = async (domainName:string, days:number, type?:stri
       startDate,
       endDate,
       type: 'web',
-      rowLimit: 1000,
+      rowLimit: 25000,
       dataState: 'all',
       dimensions: ['query', 'device', 'country', 'page'],
    };
