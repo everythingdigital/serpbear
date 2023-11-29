@@ -117,11 +117,17 @@ export const integrateKeywordSCData = (keyword: KeywordType, SCData:SCDomainData
    const threeDaysData = SCData.threeDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
    const SevenDaysData = SCData.sevenDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
    const ThirdyDaysData = SCData.thirtyDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
-   const totalData:any = { threeDays: threeDaysData, sevenDays: SevenDaysData, thirtyDays: ThirdyDaysData };
+   const NinetyDaysData = SCData.ninetyDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
+   const HundredDaysData = SCData.hundredDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
+   const ThousandDaysData = SCData.thousandDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
+   const totalData:any = { threeDays: threeDaysData, sevenDays: SevenDaysData, thirtyDays: ThirdyDaysData, ninetyDays:NinetyDaysData, hundredDays:HundredDaysData, thousandDays:ThousandDaysData };
 
    Object.keys(totalData).forEach((dataKey) => {
       let avgDataKey = 'avgThreeDays'; let divideBy = 3;
       if (dataKey === 'sevenDays') { avgDataKey = 'avgSevenDays'; divideBy = 7; }
+      if (dataKey === 'thirtyDays') { avgDataKey = 'avgThirtyDays'; divideBy = 30; }
+      if (dataKey === 'ninetyDays') { avgDataKey = 'avgNinetyDays'; divideBy = 90; }
+      if (dataKey === 'thirtyDays') { avgDataKey = 'avgThirtyDays'; divideBy = 180; }
       if (dataKey === 'thirtyDays') { avgDataKey = 'avgThirtyDays'; divideBy = 30; }
       // Actual Data
       impressions[dataKey] = totalData[dataKey].impressions || 0;
