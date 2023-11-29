@@ -109,10 +109,10 @@ export const parseSearchConsoleItem = (SCItem: SearchAnalyticsRawItem, domainNam
 
 export const integrateKeywordSCData = (keyword: KeywordType, SCData:SCDomainDataType) : KeywordType => {
    const kuid = `${keyword.country.toLowerCase()}:${keyword.device}:${keyword.keyword.replaceAll(' ', '_')}`;
-   const impressions:any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
-   const visits :any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
-   const ctr:any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
-   const position:any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
+   const impressions:any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, ninetyDays:0, hundredDays:0, thousandDays:0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
+   const visits :any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, ninetyDays:0, hundredDays:0, thousandDays:0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
+   const ctr:any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, ninetyDays:0, hundredDays:0, thousandDays:0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
+   const position:any = { yesterday: 0, threeDays: 0, sevenDays: 0, thirtyDays: 0, ninetyDays:0, hundredDays:0, thousandDays:0, avgSevenDays: 0, avgThreeDays: 0, avgThirtyDays: 0 };
 
    const threeDaysData = SCData.threeDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
    const SevenDaysData = SCData.sevenDays.find((item:SearchAnalyticsItem) => item.uid === kuid) || {};
@@ -127,8 +127,8 @@ export const integrateKeywordSCData = (keyword: KeywordType, SCData:SCDomainData
       if (dataKey === 'sevenDays') { avgDataKey = 'avgSevenDays'; divideBy = 7; }
       if (dataKey === 'thirtyDays') { avgDataKey = 'avgThirtyDays'; divideBy = 30; }
       if (dataKey === 'ninetyDays') { avgDataKey = 'avgNinetyDays'; divideBy = 90; }
-      if (dataKey === 'thirtyDays') { avgDataKey = 'avgThirtyDays'; divideBy = 180; }
-      if (dataKey === 'thirtyDays') { avgDataKey = 'avgThirtyDays'; divideBy = 30; }
+      if (dataKey === 'hundredDays') { avgDataKey = 'avgThirtyDays'; divideBy = 180; }
+      if (dataKey === 'thousandDays') { avgDataKey = 'avgThirtyDays'; divideBy = 365; }
       // Actual Data
       impressions[dataKey] = totalData[dataKey].impressions || 0;
       visits[dataKey] = totalData[dataKey].clicks || 0;
