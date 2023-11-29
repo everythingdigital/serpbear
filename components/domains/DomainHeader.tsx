@@ -23,7 +23,7 @@ const DomainHeader = ({ domain, showAddModal, showSettingsModal, exportCsv, doma
    const isConsole = router.pathname === '/domain/console/[slug]';
    const isInsight = router.pathname === '/domain/insight/[slug]';
 
-   const daysName = (dayKey:string) => dayKey.replace('three', '3').replace('seven', '7').replace('thirty', '30').replace('Days', ' Days');
+   const daysName = (dayKey:string) => dayKey.replace('three', '3').replace('seven', '7').replace('thirty', '30')replace('ninety', '90').replace('onehundredeighty', '180').replace('threehundredsixtyfive', '365').replace('Days', ' Days');
    const buttonStyle = 'leading-6 inline-block px-2 py-2 text-gray-500 hover:text-gray-700';
    const buttonLabelStyle = 'ml-2 text-sm not-italic lg:invisible lg:opacity-0';
    const tabStyle = 'rounded rounded-b-none cursor-pointer border-[#e9ebff] border-b-0';
