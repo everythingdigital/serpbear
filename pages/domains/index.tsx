@@ -73,7 +73,7 @@ const Domains: NextPage = () => {
                </div>
          )}
          <Head>
-            <title>Domains - SerpBear</title>
+            <title>Domains - digiSERP</title>
          </Head>
          <TopBar showSettings={() => setShowSettings(true)} showAddModal={() => setShowAddDomain(true)} />
 
@@ -125,7 +125,7 @@ const Domains: NextPage = () => {
              <Settings closeSettings={() => setShowSettings(false)} />
          </CSSTransition>
          <footer className='text-center flex flex-1 justify-center pb-5 items-end'>
-            <span className='text-gray-500 text-xs'><a href='https://github.com/towfiqi/serpbear' target="_blank" rel='noreferrer'>SerpBear v{appSettings?.settings?.version || '0.0.0'}</a></span>
+            <span className='text-gray-500 text-xs'><a href='https://github.com/towfiqi/serpbear' target="_blank" rel='noreferrer'>digiSERP v{appSettings?.settings?.version || '0.0.0'}</a></span>
          </footer>
          <Toaster position='bottom-center' containerClassName="react_toaster" />
       </div>
