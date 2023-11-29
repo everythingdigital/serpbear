@@ -79,7 +79,7 @@ export const getScraperClient = (keyword:KeywordType, settings:SettingsType, scr
       axiosConfig.httpsAgent = new (HttpsProxyAgent as any)(proxyURL.trim());
       axiosConfig.proxy = false;
       const axiosClient = axios.create(axiosConfig);
-      client = axiosClient.get(`https://www.google.com/search?num=100&q=${encodeURI(keyword.keyword)}`);
+      client = axiosClient.get(`https://www.google.com.tr/search?num=100&q=${encodeURI(keyword.keyword)}`);
    } else {
       client = fetch(apiURL, { method: 'GET', headers });
    }
