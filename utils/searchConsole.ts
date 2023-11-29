@@ -79,9 +79,9 @@ export const fetchDomainSCData = async (domain:string): Promise<SCDomainDataType
             if (day === 3) scDomainData.threeDays = items as SearchAnalyticsItem[];
             if (day === 7) scDomainData.sevenDays = items as SearchAnalyticsItem[];
             if (day === 30) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
-            if (day === 90) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
-            if (day === 180) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
-            if (day === 365) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
+            if (day === 90) scDomainData.ninetyDays = items as SearchAnalyticsItem[];
+            if (day === 180) scDomainData.hundredDays = items as SearchAnalyticsItem[];
+            if (day === 365) scDomainData.thousandDays = items as SearchAnalyticsItem[];
          } else if (items.error) {
             scDomainData.lastFetchError = items.errorMsg;
          }
