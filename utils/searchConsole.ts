@@ -69,7 +69,7 @@ const fetchSearchConsoleData = async (domainName:string, days:number, type?:stri
 };
 
 export const fetchDomainSCData = async (domain:string): Promise<SCDomainDataType> => {
-   const days = [3, 7, 30];
+   const days = [3, 7, 30, 90, 180, 365];
    const scDomainData:SCDomainDataType = { threeDays: [], sevenDays: [], thirtyDays: [], lastFetched: '', lastFetchError: '', stats: [] };
    if (domain) {
       for (const day of days) {
@@ -79,11 +79,14 @@ export const fetchDomainSCData = async (domain:string): Promise<SCDomainDataType
             if (day === 3) scDomainData.threeDays = items as SearchAnalyticsItem[];
             if (day === 7) scDomainData.sevenDays = items as SearchAnalyticsItem[];
             if (day === 30) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
+            if (day === 90) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
+            if (day === 180) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
+            if (day === 365) scDomainData.thirtyDays = items as SearchAnalyticsItem[];
          } else if (items.error) {
             scDomainData.lastFetchError = items.errorMsg;
          }
       }
-      const stats = await fetchSearchConsoleData(domain, 30, 'stat');
+      const stats = await fetchSearchConsoleData(domain, 365, 'stat');
       if (stats && Array.isArray(stats) && stats.length > 0) {
          scDomainData.stats = stats as SearchAnalyticsStat[];
       }
